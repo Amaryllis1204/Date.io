@@ -15,13 +15,41 @@
           <h1>Today</h1>
       </header>
 
-      <div class="date">今日の日付</div>
+      <div class="date">今日の日時</div>
       
       <div class="container">
         <script>
+          //ゼロを先頭につける関数
+          let addZero = function(value){
+            if(value < 10){
+              value = '0' + value;
+            }
+            return value;
+          }
+
+          //時間をリアルタイムで表示させる
+          function showClock(){
+            let now = new Date();
+            //時
+            let hours = now.getHours();
+            hours =  addZero(hours);
+            //分
+            let minutes = now.getMinutes();
+            minutes =  addZero(minutes);
+            //秒
+            let seconds = now.getSeconds();
+            seconds =  addZero(seconds);
+            let nowHtml = (hours + ':' + minutes + ':' + seconds);
+            document.write('<p class=date>' + nowHtml + '</p>');
+          }
+
+          function today(){
             let today = new Date();
             let todayHtml = (today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate());
             document.write('<p class=date>' + todayHtml + '</p>');
+          }
+          setInterval('showClock()', 1000);
+          setInterval('today()', 1000);
         </script>
 
       </div>

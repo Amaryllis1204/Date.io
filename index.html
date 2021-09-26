@@ -16,7 +16,8 @@
       </header>
 
       <div class="date">今日の日時</div>
-      
+      <p id = Date>今日の日付</p>
+      <p id = hours>現在時刻</p>
       <div class="container">
         <script>
           //ゼロを先頭につける関数
@@ -40,13 +41,13 @@
             let seconds = now.getSeconds();
             seconds =  addZero(seconds);
             let nowHtml = (hours + ':' + minutes + ':' + seconds);
-            document.write('<p class=date>' + nowHtml + '</p>');
+            document.getElementById('date').innerHTML = nowHtml;
           }
 
           function today(){
             let today = new Date();
             let todayHtml = (today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate());
-            document.write('<p class=date>' + todayHtml + '</p>');
+            document.getElementById('hours').innerHTML = todayHtml;
           }
           setInterval('showClock()', 1000);
           setInterval('today()', 1000);

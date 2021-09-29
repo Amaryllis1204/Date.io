@@ -35,24 +35,32 @@
           //時間をリアルタイムで表示させる
           function showClock(){
             let now = new Date();
+            
             //時
             let hours = now.getHours();
             hours =  addZero(hours);
+            
             //分
             let minutes = now.getMinutes();
             minutes =  addZero(minutes);
+            
             //秒
             let seconds = now.getSeconds();
             seconds =  addZero(seconds);
+            
+            //html内の要素を現在時刻に書き換える
             let nowHtml = (hours + ':' + minutes + ':' + seconds);
             document.getElementById('date').innerHTML = nowHtml;
           }
 
+          //今日の日付を表示させる関数
           function today(){
             let today = new Date();
             let todayHtml = (today.getFullYear() + '/' + (today.getMonth() + 1) + '/' + today.getDate());
             document.getElementById('hours').innerHTML = todayHtml;
           }
+
+          //リアルタイムで反映させる
           setInterval('showClock()', 1000);
           setInterval('today()', 1000);
         </script>
